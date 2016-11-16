@@ -1,0 +1,17 @@
+{
+  "service" : {
+    "name": "user",
+    "runtime": "\\BushtaxiDemo\\UserRuntime"
+  },
+  "links" : {
+    "dispatcher" : {
+      "type": "sub",
+      "subscriptions" : {
+        "dispatcher.user.index": "UserDemo::index"
+      }
+    },
+    "www": {
+      "type": "rep"
+    }
+  }
+}

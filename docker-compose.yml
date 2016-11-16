@@ -1,0 +1,40 @@
+version: '2'
+services:
+  www:
+    build: www/.
+    volumes:
+     - ./www:/var/www/html
+    environment:
+      - DISPATCHER=tcp://dispatcher:5555
+    depends_on:
+      - dispatcher
+    networks:
+      - back
+    ports:
+      - 80:80
+  dispatcher:
+    build: bushtaxi/.
+    environment:
+      - BIND_ADDRESS=tcp://*:5555
+    volumes:
+     - ./dispatcher:/bushtaxi
+     - ./bushtaxi:/usr/local/lib/bushtaxi
+    command:
+      - php
+      - /bushtaxi/dispatcher.php
+    networks:
+     back:
+       aliases:
+         - dispatcher
+  user:
+    build: bushtaxi/.
+    volumes:
+     - ./user:/bushtaxi
+     - ./bushtaxi:/usr/local/lib/bushtaxi
+    command:
+      - php
+      - /bushtaxi/user.php
+    networks:
+      - back
+networks:
+  back:

@@ -1,0 +1,24 @@
+version: '2'
+services:
+  client:
+    build: ../
+    volumes:
+     - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=sub
+      - --testsuite=pub-sub
+    networks:
+      - back
+  server:
+    build: ../
+    volumes:
+      - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=pub
+      - --testsuite=pub-sub
+    networks:
+      - back
+networks:
+  back:

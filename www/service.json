@@ -1,0 +1,11 @@
+{
+  "service" : {
+    "name": "user",
+    "runtime": "\\BushtaxiDemo\\WebRuntime"
+  },
+  "links" : {
+    "dispatcher" : {
+      "type": "req"
+    }
+  }
+}

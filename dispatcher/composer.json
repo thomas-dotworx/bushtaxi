@@ -1,0 +1,18 @@
+{
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/usr/local/lib/bushtaxi",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {"BushtaxiDemo\\": "src"}
+    },
+    "require": {
+        "nikic/fast-route": "^1.0",
+        "moee/bushtaxi": "dev-master"
+    }
+}

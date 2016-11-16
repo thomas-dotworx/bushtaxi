@@ -1,0 +1,8 @@
+{
+  "service" : {
+    "name": "dispatcher",
+    "runtime": "\\BushtaxiDemo\\DispatcherRuntime"
+  },
+  "links": {
+  }
+}

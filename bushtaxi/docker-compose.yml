@@ -1,0 +1,10 @@
+version: '2'
+services:
+  tests:
+    build: .
+    volumes:
+     - .:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/paratest
+      - --functional
+      - --configuration=/bushtaxi/phpunit.xml
