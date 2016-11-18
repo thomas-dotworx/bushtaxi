@@ -1,0 +1,39 @@
+version: '2'
+services:
+  client:
+    build: ../
+    volumes:
+     - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=client
+      - --testsuite=load-balancing-broker
+    networks:
+      - back
+  worker:
+    build: ../
+    volumes:
+     - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=worker
+      - --testsuite=load-balancing-broker
+    networks:
+      - back
+  proxy:
+    build: ../
+    volumes:
+      - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=proxy
+      - --testsuite=load-balancing-broker
+    networks:
+      back:
+        ipv4_address: 10.0.0.100
+networks:
+  back:
+    ipam:
+      config:
+       - subnet: 10.0.0.0/8
+         gateway: 10.0.0.1

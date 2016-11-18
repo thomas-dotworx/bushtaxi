@@ -1,0 +1,11 @@
+{
+  "service" : {
+    "name" : "server"
+  },
+  "links" : {
+    "client" : {
+      "type" : "push",
+      "bind" : "tcp://*:5356"
+    }
+  }
+}

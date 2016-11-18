@@ -1,0 +1,25 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="req-rep">
+            <directory>tests/Bushtaxi/ReqRep</directory>
+        </testsuite>
+        <testsuite name="pub-sub">
+            <directory>tests/Bushtaxi/PubSub</directory>
+        </testsuite>
+        <testsuite name="proxy-pub-sub">
+            <directory>tests/Bushtaxi/ProxyPubSub</directory>
+        </testsuite>
+        <testsuite name="push-pull">
+            <directory>tests/Bushtaxi/PushPull</directory>
+        </testsuite>
+        <testsuite name="parallel-pipeline">
+            <directory>tests/Bushtaxi/ParallelPipeline</directory>
+        </testsuite>
+        <testsuite name="load-balancing-broker">
+            <directory>tests/Bushtaxi/LoadBalancingBroker</directory>
+        </testsuite>
+        <testsuite name="request-reply-broker">
+            <directory>tests/Bushtaxi/RequestReplyBroker</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

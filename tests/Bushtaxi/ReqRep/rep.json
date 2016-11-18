@@ -1,0 +1,11 @@
+{
+  "service" : {
+    "name" : "server"
+  },
+  "links" : {
+    "client" : {
+      "type" : "rep",
+      "bind" : "tcp://10.0.0.100:5356"
+    }
+  }
+}

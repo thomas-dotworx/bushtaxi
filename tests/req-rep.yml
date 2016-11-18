@@ -1,0 +1,29 @@
+version: '2'
+services:
+  client:
+    build: ../
+    volumes:
+     - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=req
+      - --testsuite=req-rep
+    networks:
+      - back
+  server:
+    build: ../
+    volumes:
+      - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=rep
+      - --testsuite=req-rep
+    networks:
+      back:
+        ipv4_address: 10.0.0.100
+networks:
+  back:
+    ipam:
+      config:
+       - subnet: 10.0.0.0/8
+         gateway: 10.0.0.1

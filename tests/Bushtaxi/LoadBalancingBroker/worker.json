@@ -1,0 +1,11 @@
+{
+  "service" : {
+    "name" : "worker"
+  },
+  "links" : {
+    "proxy" : {
+      "type" : "req",
+      "connect" : "tcp://10.0.0.100:6000"
+    }
+  }
+}

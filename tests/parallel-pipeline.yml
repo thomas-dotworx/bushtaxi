@@ -1,0 +1,40 @@
+version: '2'
+services:
+  ventilator:
+    build: ../
+    volumes:
+     - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=ventilator
+      - --testsuite=parallel-pipeline
+    networks:
+      back:
+        ipv4_address: 10.0.1.1
+  worker:
+    build: ../
+    volumes:
+      - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=worker
+      - --testsuite=parallel-pipeline
+    networks:
+      - back
+  sink:
+    build: ../
+    volumes:
+      - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=sink
+      - --testsuite=parallel-pipeline
+    networks:
+      back:
+        ipv4_address: 10.0.3.1
+networks:
+  back:
+    ipam:
+      config:
+       - subnet: 10.0.0.0/8
+         gateway: 10.0.0.1

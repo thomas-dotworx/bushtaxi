@@ -1,0 +1,11 @@
+{
+  "service" : {
+    "name" : "service"
+  },
+  "links" : {
+    "broker" : {
+      "type" : "rep",
+      "connect" : "tcp://10.0.0.100:6000"
+    }
+  }
+}

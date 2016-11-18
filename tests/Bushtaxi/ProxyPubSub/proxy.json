@@ -1,0 +1,15 @@
+{
+  "service" : {
+    "name" : "proxy"
+  },
+  "links" : {
+    "publisher" : {
+      "type" : "xsub",
+      "bind" : "tcp://10.0.0.100:5000"
+    },
+    "subscriber" : {
+      "type" : "xpub",
+      "bind" : "tcp://10.0.0.100:6000"
+    }
+  }
+}

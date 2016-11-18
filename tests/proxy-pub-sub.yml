@@ -1,0 +1,39 @@
+version: '2'
+services:
+  publisher:
+    build: ../
+    volumes:
+     - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=publisher
+      - --testsuite=proxy-pub-sub
+    networks:
+      - back
+  proxy:
+    build: ../
+    volumes:
+      - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=proxy
+      - --testsuite=proxy-pub-sub
+    networks:
+      back:
+        ipv4_address: 10.0.0.100
+  subscriber:
+    build: ../
+    volumes:
+     - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=subscriber
+      - --testsuite=proxy-pub-sub
+    networks:
+      - back
+networks:
+  back:
+    ipam:
+      config:
+       - subnet: 10.0.0.0/8
+         gateway: 10.0.0.1

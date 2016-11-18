@@ -1,0 +1,11 @@
+{
+  "service" : {
+    "name" : "publisher"
+  },
+  "links" : {
+    "proxy" : {
+      "type" : "pub",
+      "connect" : "tcp://10.0.0.100:5000"
+    }
+  }
+}

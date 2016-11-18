@@ -1,0 +1,15 @@
+{
+  "service" : {
+    "name" : "broker"
+  },
+  "links" : {
+    "client" : {
+      "type" : "router",
+      "bind" : "tcp://10.0.0.100:5000"
+    },
+    "service" : {
+      "type" : "dealer",
+      "bind" : "tcp://10.0.0.100:6000"
+    }
+  }
+}

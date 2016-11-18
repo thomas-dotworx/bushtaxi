@@ -1,0 +1,14 @@
+{
+  "service" : {
+    "name" : "subscriber"
+  },
+  "links" : {
+    "proxy" : {
+      "type" : "sub",
+      "connect" : "tcp://10.0.0.100:6000",
+      "subscriptions" : {
+        "Hello": "Hello"
+      }
+    }
+  }
+}

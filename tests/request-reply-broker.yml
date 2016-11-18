@@ -1,0 +1,39 @@
+version: '2'
+services:
+  client:
+    build: ../
+    volumes:
+     - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=client
+      - --testsuite=request-reply-broker
+    networks:
+      - back
+  broker:
+    build: ../
+    volumes:
+      - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=broker
+      - --testsuite=request-reply-broker
+    networks:
+      back:
+        ipv4_address: 10.0.0.100
+  service:
+    build: ../
+    volumes:
+      - ..:/bushtaxi
+    command:
+      - /bushtaxi/vendor/bin/phpunit
+      - --group=service
+      - --testsuite=request-reply-broker
+    networks:
+      - back
+networks:
+  back:
+    ipam:
+      config:
+       - subnet: 10.0.0.0/8
+         gateway: 10.0.0.1

@@ -1,0 +1,11 @@
+{
+  "service" : {
+    "name" : "client"
+  },
+  "links" : {
+    "server" : {
+      "type" : "req",
+      "connect" : "tcp://10.0.0.100:5356"
+    }
+  }
+}

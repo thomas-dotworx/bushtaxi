@@ -1,0 +1,11 @@
+{
+  "service" : {
+    "name" : "sink"
+  },
+  "links" : {
+    "worker" : {
+      "type" : "pull",
+      "bind" : "tcp://10.0.3.1:5000"
+    }
+  }
+}
