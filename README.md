@@ -1,6 +1,6 @@
 # Bushtaxi
 
-Bushtaxi aims at making your live with ZeroMQ easier. It establishes connections and bindings based on simple configurations.
+Bushtaxi aims at making your life with ZeroMQ easier. It establishes connections and bindings based on simple configurations.
 
 ## Usage
 
